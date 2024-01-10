@@ -26,15 +26,16 @@ class TvShows extends Component {
 		return (
 			<div>
 				<h4>{this.props.category}</h4>
-				<Link to={`/movie-details/${this.state.serie.imdbID}`}>
-					<div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
-						{this.state.serie.map((serie) => (
-							<div key={serie.imdbID} className="col mb-2 text-center px-1">
+
+				<div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
+					{this.state.serie.map((serie) => (
+						<Link key={serie.imdbID} to={`/movie-details/${serie.imdbID}`} className="p-0">
+							<div className="col mb-2 text-center px-1">
 								<img className="img-fluid object-fit-cover" src={serie.Poster} alt="poster film" />
 							</div>
-						))}
-					</div>
-				</Link>
+						</Link>
+					))}
+				</div>
 			</div>
 		);
 	}

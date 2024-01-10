@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class MyGallery extends Component {
 	state = {
@@ -27,9 +28,11 @@ class MyGallery extends Component {
 				<h4>{this.props.category}</h4>
 				<div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4">
 					{this.state.movie.map((movie) => (
-						<div key={movie.imdbID} className="col mb-2 text-center px-1">
-							<img className="img-fluid object-fit-cover" src={movie.Poster} alt="poster film" />
-						</div>
+						<Link key={movie.imdbID} to={`/movie-details/${movie.imdbID}`} className="p-0">
+							<div className="col mb-2 text-center px-1">
+								<img className="img-fluid object-fit-cover" src={movie.Poster} alt="poster film" />
+							</div>
+						</Link>
 					))}
 				</div>
 			</div>
